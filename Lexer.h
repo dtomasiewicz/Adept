@@ -2,8 +2,8 @@
 #define LEXER_H_
 
 #include "TokenSet.h"
-#include "Block.h"
+#include "Stream.h"
 
-TokenSet *Lexer_analyze(Block *code);
+TokenSet *Lexer_analyze(Stream *code);
 
 #endif

@@ -4,11 +4,11 @@
 #include "Scope.h"
 #include "Node.h"
 #include "_Object.h"
-#include "Block.h"
+#include "NodeSet.h"
 #include <stdlib.h>
 #include <string.h>
 
-ForInNode *ForInNode_new(const char *var, Node *list, Block *block) {
+ForInNode *ForInNode_new(const char *var, Node *list, NodeSet *block) {
 	ForInNode *node = malloc(sizeof(ForInNode));
 	node->node.type = FORIN;
 	node->node.eval = &ForInNode_eval;

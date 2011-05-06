@@ -5,5 +5,6 @@
 #include "TokenSet.h"
 
 NodeSet *Parser_parse(TokenSet *tokens);
+NodeSet *Parser_parseBlock(TokenSet *tokens, int indentLevel);
 
 #endif

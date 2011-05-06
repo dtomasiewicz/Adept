@@ -20,6 +20,7 @@ void LinkedList_push(LinkedList *list, void *item);
 void LinkedList_unshift(LinkedList *list, void *item);
 void *LinkedList_pop(LinkedList *list);
 void *LinkedList_shift(LinkedList *list);
+void *LinkedList_peek(LinkedList *list);
 int LinkedList_length(LinkedList *list);
 void *LinkedList_iterate(LinkedList *list);
 void LinkedList_reset(LinkedList *list);

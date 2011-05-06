@@ -89,6 +89,14 @@ void *LinkedList_shift(LinkedList *list) {
 	return NULL;
 }
 
+void *LinkedList_peek(LinkedList *list) {
+	if(list->head == NULL) {
+		return NULL;
+	} else {
+		return list->head->data;
+	}
+}
+
 int LinkedList_length(LinkedList *list) {
 	return list->length;
 }

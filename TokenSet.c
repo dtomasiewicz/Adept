@@ -22,6 +22,10 @@ Token *TokenSet_shift(TokenSet *set) {
 	return (Token *)LinkedList_shift(set->tokens);
 }
 
+Token *TokenSet_peek(TokenSet *set) {
+	return (Token *)LinkedList_peek(set->tokens);
+}
+
 int TokenSet_length(TokenSet *set) {
 	return LinkedList_length(set->tokens);
 }

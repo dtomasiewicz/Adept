@@ -1,5 +1,5 @@
 #include "Lexer.h"
-#include "Block.h"
+#include "Stream.h"
 #include "TokenSet.h"
 #include "Token.h"
 #include <stdlib.h>
@@ -18,7 +18,7 @@ int isopchar(unsigned char c) {
 	return 0;
 }
 
-TokenSet *Lexer_analyze(Block *code) {
+TokenSet *Lexer_analyze(Stream *code) {
 	TokenSet *tokens = TokenSet_new();
 	char buffer[256];
 	int buffLen = 0;
@@ -30,7 +30,7 @@ TokenSet *Lexer_analyze(Block *code) {
 	int done, decline, escaped;
 	char flind; // character that indicated to switch from int to float literal
 
-	for(i = Block_getc(code); i != EOF; i = Block_getc(code)) {
+	for(i = Stream_getc(code); i != EOF; i = Stream_getc(code)) {
 		c = (unsigned char) i;
 		done = decline = 0;
 
@@ -114,7 +114,7 @@ TokenSet *Lexer_analyze(Block *code) {
 				break;
 			case LINTEGER:
 				if(c == '.') {
-					unsigned char next = (unsigned char) Block_peekc(code);
+					unsigned char next = (unsigned char) Stream_peekc(code);
 					if(isdigit(next)) {
 						mode = LFLOAT;
 						flind = '.';
@@ -191,7 +191,7 @@ TokenSet *Lexer_analyze(Block *code) {
 		}
 
 		if(decline) {
-			Block_ungetc(code, i);
+			Stream_ungetc(code, i);
 			done = 1;
 		} else {
 			buffer[buffLen++] = c;

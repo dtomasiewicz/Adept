@@ -11,6 +11,7 @@ typedef struct {
 TokenSet *TokenSet_new();
 void TokenSet_push(TokenSet *set, Token *token);
 Token *TokenSet_shift(TokenSet *set);
+Token *TokenSet_peek(TokenSet *set);
 void TokenSet_delete(TokenSet *set);
 int TokenSet_length(TokenSet *set);
 
